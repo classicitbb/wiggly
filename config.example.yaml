@@ -1,0 +1,30 @@
+primary:
+  url: "https://primary-odoo.example.com"
+  db: "primary_db"
+  username: "admin"
+  password: "admin"
+
+targets:
+  - name: "branch-1"
+    url: "https://branch-odoo.example.com"
+    db: "branch_db"
+    username: "admin"
+    password: "admin"
+
+sync:
+  batch_size: 200
+  fields:
+    - name
+    - email
+    - phone
+    - mobile
+    - vat
+    - company_type
+    - street
+    - street2
+    - city
+    - state_id
+    - zip
+    - country_id
+    - website
+    - comment
