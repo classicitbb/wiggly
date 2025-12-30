@@ -22,6 +22,7 @@ class OdooConfig:
     db: str
     username: str
     password: str
+    name: Optional[str] = None
 
 
 class OdooClient:
@@ -250,7 +251,8 @@ def main() -> int:
     for target in target_configs:
         client = OdooClient(target)
         ensure_global_uuid_field(client)
-        targets.append((target.db, client))
+        target_label = target.name or target.db
+        targets.append((target_label, client))
 
     sync_contacts(primary, targets, fields, args.state, batch_size)
     return 0
